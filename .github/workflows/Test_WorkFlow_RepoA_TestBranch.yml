@@ -1,0 +1,16 @@
+name: Workflow-Test1-test-Branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      custom_input:
+        description: "Input triggered by Repo B"
+        required: true
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Custom Input
+        run:  |
+              echo "Custom input: ${{ github.event.inputs.custom_input }}"
