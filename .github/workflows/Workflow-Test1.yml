@@ -1,0 +1,17 @@
+name: Workflow-Test1
+
+on:
+  workflow_dispatch:
+    inputs:
+      custom_input:
+        description: "Input from Repo B"
+        required: true
+        type: string
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print the input
+        run: |
+            echo "Input received from Repo B: ${{ inputs.custom_input }}"
