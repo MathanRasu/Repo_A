@@ -4,14 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       custom_input:
-        description: "Input from Repo B"
+        description: "Input triggered by Repo B"
         required: true
-        type: string
 
 jobs:
-  run:
+  example_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Print the input
-        run: |
-            echo "Input received from Repo B: ${{ inputs.custom_input }}"
+      - name: Print Custom Input
+        run:  |
+              echo "Custom input: ${{ github.event.inputs.custom_input }}"
