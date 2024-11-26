@@ -1,16 +1,18 @@
-name: Workflow-Test1-test-Branch
+name: Test-WorkFlow-RepoA-02
 
 on:
   workflow_dispatch:
     inputs:
       custom_input:
-        description: "Input triggered by Repo B"
+        description: 'Triggered by Repo B'
         required: true
+        default: 'No input provided'
 
 jobs:
-  example_job:
+  example-job:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Print Custom Input
-        run:  |
-              echo "Custom input: ${{ github.event.inputs.custom_input }}"
+      - name: Display Custom Input from Repo B
+        run: |
+            echo "Received input: ${{ github.event.inputs.custom_input }}"
